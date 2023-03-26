@@ -12,12 +12,16 @@
 // Put your code here.
 
 // Clear RAM[2]
+(INIT)
 @2
 M = 0
 
+
+(MAIN)
+// Check if RAM[1] is zero yet
 @1
 D = M
-@16
+@END
 D; JLE
 
 // Start main loop
@@ -34,8 +38,9 @@ M = M + D
 M = M - 1
 D = M
 
-@2
-A; JMP
+@MAIN
+0; JMP
 
-@12
-A; JMP
+(END)
+@END
+0; JMP
